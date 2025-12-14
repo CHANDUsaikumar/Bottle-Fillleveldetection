@@ -1,148 +1,100 @@
-# Bottle-Fillleveldetection
-🧴 Beverage Bottle Fill Level Detection using Computer Vision
-📌 Overview
+# 🧴 Beverage Bottle Fill Level Detection using Computer Vision
 
-Ensuring consistent liquid fill levels in beverage bottles is a critical quality control task in the manufacturing industry. Manual inspection is time-consuming, error-prone, and not scalable.
+## 📌 Overview
+Maintaining consistent liquid fill levels in beverage bottles is a critical quality control requirement in manufacturing industries. Traditional manual inspection methods are labor-intensive, time-consuming, and prone to human error.
 
-This project presents an automated computer vision–based system using Convolutional Neural Networks (CNNs) to detect and classify bottle fill levels from images. The system is designed to improve inspection accuracy, reduce human dependency, and enable scalable quality assurance in production environments.
+This project implements an **automated computer vision system** using **Convolutional Neural Networks (CNNs)** to detect and classify bottle fill levels from images. The solution aims to improve inspection accuracy, reduce manual effort, and enhance production efficiency.
 
-🎯 Problem Statement
+---
 
-To automatically detect and classify the fill level of liquid in beverage bottles under controlled conditions using image-based analysis.
+## 🎯 Problem Statement
+The objective of this project is to automatically **detect and classify liquid fill levels in beverage bottles** using image-based analysis.
 
-The task is formulated as a multi-class image classification problem, where each image is classified into one of the predefined fill levels:
+The problem is formulated as a **multi-class image classification task**, where each bottle image is classified into one of the following fill-level categories:
+- 30%
+- 50%
+- 70%
+- 80%
+- 90%
 
-30%
+---
 
-50%
+## 🧠 Methodology
 
-70%
+### 1. Data Collection
+- Captured images of various beverage bottles under controlled lighting conditions
+- Multiple bottle types, shapes, and angles were included
+- Images were initially captured in HEIC format
 
-80%
+### 2. Data Preprocessing
+- Converted images from HEIC to JPG for library compatibility
+- Image resizing and normalization
+- Basic image enhancement using OpenCV
 
-90%
+### 3. Data Augmentation
+To improve generalization and prevent overfitting, the following augmentation techniques were applied:
+- Rotation
+- Width and height shifts
+- Zooming
+- Brightness adjustment
+- Fill mode handling
 
-🧠 Solution Approach
+### 4. Model Training
+- Implemented a **custom CNN architecture** trained from scratch
+- Applied **transfer learning** using VGG16 and ResNet50
+- Models were trained and validated on the augmented dataset
 
-The system follows a complete end-to-end computer vision pipeline:
+### 5. Evaluation
+- Performance evaluated using accuracy on a held-out test dataset
+- Comparative analysis performed across different architectures
 
-Data Collection
+---
 
-Captured images of different bottle types
+## 🏗️ Models Used
+- Custom Convolutional Neural Network (CNN)
+- VGG16 (Transfer Learning)
+- ResNet50 (Transfer Learning)
 
-Controlled lighting and background setup
+---
 
-Multiple viewing angles and fill levels
+## 📊 Results
 
-Preprocessing
+| Model | Test Accuracy |
+|------|---------------|
+| Custom CNN | **90.13%** |
+| VGG16 | 85.04% |
+| ResNet50 | 66.96% |
 
-Converted images from HEIC to JPG
+**Insight:**  
+The custom CNN achieved the highest accuracy due to its suitability for the dataset size and problem complexity. Deeper architectures like ResNet50 showed reduced performance, likely due to over-parameterization.
 
-Image resizing and normalization
+---
 
-Quality enhancement using OpenCV
+## ⚙️ Technologies Used
+- **Programming Language:** Python  
+- **Deep Learning Frameworks:** TensorFlow, Keras  
+- **Computer Vision:** OpenCV  
+- **Image Processing:** PIL  
+- **Numerical Computing:** NumPy  
+- **Environment:** Jupyter Notebook  
 
-Data Augmentation
+---
 
-Rotation
+## 🚧 Challenges
+- Variations in image quality due to lighting and camera angles
+- HEIC image format incompatibility with standard CV libraries
+- Risk of overfitting due to limited dataset size
 
-Width & height shifts
+---
 
-Zooming
+## 🔮 Future Scope
+- Extend the system to real-time **video-based fill level detection**
+- Improve robustness under varying lighting conditions
+- Implement Region of Interest (ROI) extraction
+- Optimize the model for **edge deployment** (e.g., NVIDIA Jetson)
+- Include additional evaluation metrics such as confusion matrix and precision-recall
 
-Brightness adjustment
+---
 
-Fill mode handling
-This helps improve model generalization and reduce overfitting.
-
-Model Training
-
-Custom CNN architecture
-
-Transfer learning with VGG16
-
-Transfer learning with ResNet50
-
-Evaluation
-
-Accuracy-based evaluation on a held-out test set
-
-Comparative analysis across architectures
-
-🏗️ Model Architectures Used
-
-Custom CNN (trained from scratch)
-
-VGG16 (transfer learning)
-
-ResNet50 (transfer learning)
-
-📊 Results
-Model	Test Accuracy
-Custom CNN	90.13%
-VGG16	85.04%
-ResNet50	66.96%
-
-Observation:
-The custom CNN performed best due to better alignment with dataset size and task complexity. Deeper architectures like ResNet50 showed signs of over-parameterization for the available dataset.
-
-⚙️ Technologies & Tools
-
-Programming Language: Python
-
-Deep Learning: TensorFlow, Keras
-
-Computer Vision: OpenCV
-
-Image Processing: PIL
-
-Numerical Computing: NumPy
-
-Development Environment: Jupyter Notebook
-
-🚧 Challenges Faced
-
-Image quality variations due to lighting and angle differences
-
-HEIC image format incompatibility, requiring conversion to JPG
-
-Overfitting risk due to limited dataset size
-
-🔮 Future Improvements
-
-Extend the system to real-time video-based fill level detection
-
-Implement Region of Interest (ROI) extraction for better robustness
-
-Improve performance under varying lighting conditions
-
-Optimize the model for edge deployment (e.g., NVIDIA Jetson)
-
-Add detailed metrics such as confusion matrix and precision-recall analysis
-
-📁 Project Structure
-├── dataset/
-│   ├── train/
-│   ├── test/
-│
-├── notebooks/
-│   └── bottle_fill_detection.ipynb
-│
-├── models/
-│   ├── cnn_model.h5
-│   ├── vgg16_model.h5
-│   └── resnet50_model.h5
-│
-├── README.md
-
-⭐ Why This Project Matters
-
-This project demonstrates:
-
-Practical application of Computer Vision in industrial automation
-
-End-to-end ML pipeline development
-
-Hands-on experience with CNNs and transfer learning
-
-Strong alignment with AI/ML and Computer Vision roles
+## ⭐ Conclusion
+This project demonstrates a complete end-to-end **computer vision pipeline** for industrial quality inspection. It highlights practical experience in dataset creation, CNN-based modeling, transfer learning, and performance evaluation, making it highly relevant for AI/ML and Computer Vision roles.
